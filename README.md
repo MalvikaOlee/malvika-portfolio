@@ -2,8 +2,9 @@
 
 ## Project: AWS-Based Data Analytics Platform for Vancouver Water Quality
 <img width="800" alt="Image" src="https://github.com/user-attachments/assets/ccdfb270-a785-4ad8-a2c7-009107824cb5" />
+
 ## Project Summary 
-  The goal of this cloud project is to create a Data Analytics Platform (DAP) for the City of Vancouver that is based on three municipal datasets: Building Water Treatment Systems, Decorative Water Features, and Cooling Tower Water.  From intake and profiling to transformation, governance, and monitoring, the project executes the full AWS workflow.  To guarantee performance, security, and data integrity, the solution makes use of Amazon S3, EC2, Glue Studio, Athena, and other AWS services.
+The goal of this cloud project is to create a Data Analytics Platform (DAP) for the City of Vancouver that is based on three municipal datasets: Building Water Treatment Systems, Decorative Water Features, and Cooling Tower Water.  From intake and profiling to transformation, governance, and monitoring, the project executes the full AWS workflow.  To guarantee performance, security, and data integrity, the solution makes use of Amazon S3, EC2, Glue Studio, Athena, and other AWS services.
 
 **Project Title**: Water Quality Analytics and Transformation Using AWS Cloud Services
 
