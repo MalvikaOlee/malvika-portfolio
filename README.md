@@ -30,7 +30,7 @@ S3 Bucket Name: vancouver-water-quality-data-malvi
 <img width="1273" alt="Image" src="https://github.com/user-attachments/assets/811c8e13-cbbc-4081-82f2-a7f2888d2b72" />
 A structured folder layout was created with paths organized by dataset type and timestamps (e.g., year/quarter). This logical structure supports efficient retrieval and lifecycle management.
 
-**3:Profiling with AWS Glue DataBrew**
+**3: Profiling with AWS Glue DataBrew**
 Each file's data quality was examined using Glue DataBrew.  
 - About 4% of the missing values were found by the profiling jobs.
 - There is some evidence linking elevated temperatures to a lower number of Legionella.
@@ -42,7 +42,7 @@ The Cooling Tower, Decorative Water Feature, and Building Water Treatment datase
 - Building Water Treatment
   <img width="1270" alt="Image" src="https://github.com/user-attachments/assets/09984439-f661-4b70-9b7f-dbc708b16afa" />
 
-**4.Data Cleaning with DataBrew**
+**4. Data Cleaning with DataBrew**
 Three cleaning jobs were created — one per dataset — to:
 - Replace missing values
 - Rename columns (to CamelCase)
