@@ -20,14 +20,15 @@ Each file contains critical parameters such as pH, chlorine level, temperature, 
 ## Tools and Technologies Used in AWS:
 **1. Data Ingestion and EC2 Setup**
 EC2 Instance Name: VWQS-Malvi
-  ![image alt](https://github.com/Malvika3000/data-analyst-malvika/blob/fae437321d55f217c36db312be16b3ad9b627039/3.EC2.png)
+<img width="1280" alt="Image" src="https://github.com/user-attachments/assets/a37c846f-7d62-43f4-9efc-fd83ae53adb4" />
 To import the CSV datasets into AWS S3 buckets, a virtual server called Amazon EC2 was set up.  Data transmission from the local system to S3 and the execution of AWS CLI instructions were done via PowerShell.
-![image alt](https://github.com/Malvika3000/data-analyst-malvika/blob/2f664b42d6f80b148aea9582483ae9d4c82e4887/4.%20Power%20Shell.png)
+<img width="866" alt="Image" src="https://github.com/user-attachments/assets/d05ef66f-3b1c-4e49-acfd-e204d4e0182a" />
 
 **2. Structured S3 Folder Design**
 S3 Bucket Name: vancouver-water-quality-data-malvi
-![image alt](https://github.com/Malvika3000/data-analyst-malvika/blob/2f664b42d6f80b148aea9582483ae9d4c82e4887/2.%20S3%20ss.png)
-![image alt](https://github.com/Malvika3000/data-analyst-malvika/blob/2f664b42d6f80b148aea9582483ae9d4c82e4887/17.%20copy%20and%20paste.png)
+<img width="1261" alt="Image" src="https://github.com/user-attachments/assets/b3d83b63-d874-45ff-be8c-da866208e79a" />
+<img width="1273" alt="Image" src="https://github.com/user-attachments/assets/811c8e13-cbbc-4081-82f2-a7f2888d2b72" />
+A structured folder layout was created with paths organized by dataset type and timestamps (e.g., year/quarter). This logical structure supports efficient retrieval and lifecycle management.
 
 **3:Profiling with AWS Glue DataBrew**
 Each file's data quality was examined using Glue DataBrew.  
@@ -35,44 +36,44 @@ Each file's data quality was examined using Glue DataBrew.
 - There is some evidence linking elevated temperatures to a lower number of Legionella.
 The Cooling Tower, Decorative Water Feature, and Building Water Treatment datasets all had clean, distinct records, according to Glue DataBrew profile, which showed that none of the datasets had duplicate rows.
 - Cooling Tower
-  ![image alt](https://github.com/Malvika3000/data-analyst-malvika/blob/2f664b42d6f80b148aea9582483ae9d4c82e4887/6.%20Data%20profiling.png)
+<img width="1280" alt="Image" src="https://github.com/user-attachments/assets/d8e8c784-0f6b-4333-a8a6-826135bf0140" />
 - Decorative Water Feature
-  ![image alt](https://github.com/Malvika3000/data-analyst-malvika/blob/2f664b42d6f80b148aea9582483ae9d4c82e4887/7.%20Data%20profiling%20dwf.png)
+<img width="1274" alt="Image" src="https://github.com/user-attachments/assets/88586d49-a499-4e47-b3e5-ea1beda455d4" />
 - Building Water Treatment
-  ![image alt](https://github.com/Malvika3000/data-analyst-malvika/blob/2f664b42d6f80b148aea9582483ae9d4c82e4887/8.%20data%20profiling%20bwt.png)
+  <img width="1270" alt="Image" src="https://github.com/user-attachments/assets/09984439-f661-4b70-9b7f-dbc708b16afa" />
 
 **4.Data Cleaning with DataBrew**
 Three cleaning jobs were created — one per dataset — to:
 - Replace missing values
 - Rename columns (to CamelCase)
 - Fix delimiters (; instead of ,)
-![image alt](https://github.com/Malvika3000/data-analyst-malvika/blob/2f664b42d6f80b148aea9582483ae9d4c82e4887/9.%20Data%20cleaning%20run%20jobs.png)
+<img width="1273" alt="Image" src="https://github.com/user-attachments/assets/d0a8504c-86eb-4cb3-8c61-11def2d216a5" />
 
 Cleaned files were stored in two locations:
 - User Folder: CSV for front-end users
 - System Folder: Parquet files with Snappy compression
-![image alt](https://github.com/Malvika3000/data-analyst-malvika/blob/2f664b42d6f80b148aea9582483ae9d4c82e4887/14.%20report%20ss.png)
-![image alt](https://github.com/Malvika3000/data-analyst-malvika/blob/2f664b42d6f80b148aea9582483ae9d4c82e4887/15.%20user%20reprot.png)
+<img width="1276" alt="Image" src="https://github.com/user-attachments/assets/0908fa24-3088-4ac7-9a3b-001cd6323995" />
+<img width="1280" alt="Image" src="https://github.com/user-attachments/assets/aac99aed-9d03-40ff-9a6b-1fd5e07959e2" />
 
 **5. Lifecycle Rules for Cost Optimization**
 To lower long-term storage expenses, older files were archived into Glacier Instant Retrieval using the S3 Lifecycle setting.
-![image alt](https://github.com/Malvika3000/data-analyst-malvika/blob/2f664b42d6f80b148aea9582483ae9d4c82e4887/10.%20S3%20lifecycle%20rules.png)
+<img width="1267" alt="Image" src="https://github.com/user-attachments/assets/8a7fa4df-be06-4052-971f-6422898f15d6" />
 
 **6: Data Transformation with Glue Studio (ETL)**
 A visual pipeline in AWS Glue Studio transformed, filtered, and summarized the data. Key steps:
 - Format temperature and date fields
 - Filter invalid records
 - Group and aggregate by water type and location
-![image alt](https://github.com/Malvika3000/data-analyst-malvika/blob/2f664b42d6f80b148aea9582483ae9d4c82e4887/13.%20visual%20pipeline%20ss.png)
+<img width="575" alt="Image" src="https://github.com/user-attachments/assets/a75b5f76-52e1-4842-92f0-b054d5001bb2" />
 
 **7: Schema Registration with AWS Glue Catalog**
 Glue Crawlers automatically detected schema and stored metadata into Glue Catalog tables, enabling Athena queries and future analytics.
-![image alt](https://github.com/Malvika3000/data-analyst-malvika/blob/2f664b42d6f80b148aea9582483ae9d4c82e4887/12.%20crawler.png)
-![image alt](https://github.com/Malvika3000/data-analyst-malvika/blob/2f664b42d6f80b148aea9582483ae9d4c82e4887/16.%20table%20ss.png)
+<img width="1262" alt="Image" src="https://github.com/user-attachments/assets/a5b5af2d-1245-4c54-9159-c019f4efbe29" />
+<img width="1275" alt="Image" src="https://github.com/user-attachments/assets/a5decb93-c26d-4018-bb69-b0527b913d55" />
 
 **8: Visual Architecture Overview**
 ETL pipelines, Glue profiling, S3 buckets, PowerShell scripting, EC2, lifecycle rules, and cataloging are all part of the end-to-end cloud design.
-![image alt](https://github.com/Malvika3000/data-analyst-malvika/blob/2f664b42d6f80b148aea9582483ae9d4c82e4887/11.%20draw.io.png)
+<img width="891" alt="Image" src="https://github.com/user-attachments/assets/56565a33-7225-43e1-800d-928c21cf9b45" />
 
 ## Insight & Recommendation:
   With validation rules and traceable metadata, the project guarantees clean, formatted, and efficient data storage in S3.  Water quality officers will be able to monitor trends, spot irregularities, and ensure adherence to public health standards with the use of the condensed data.
